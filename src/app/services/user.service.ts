@@ -39,6 +39,7 @@ export class UserService  extends APIService{
       if (loginResponse) {
         this.authService.accessToken = loginResponse.accessToken;
       }
+    
     });
   }
 

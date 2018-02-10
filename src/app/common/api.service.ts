@@ -46,13 +46,13 @@ constructor(
   private handleError(error: Response | any) {
     let errObj: any;
 
-    if (error instanceof Response) {
+    /*if (error instanceof Response) {
       const body = error.json();
       errObj = body;
     } else {
       errObj = error.message ? { message: error.message } : { message: error };
-    }
+    }*/
 
-    return Observable.throw(errObj);
+    return Observable.throw(error._body);
   }
 }
