@@ -9,33 +9,25 @@ import { AuthService } from '../common/auth.service';
 
 
 @Injectable()
-export class UserService  extends APIService{
-   
-    private resourceUrl: string = 'user/items';
+export class UserService  extends APIService{ 
+  private resourceUrl: string = 'user';
     private users: User[] = [
-    new User("","","","Michael","Jackson","https://www.thefamouspeople.com/profiles/images/michael-jackson-3.jpg"),
-    new User("","","",'Scarlett',"Johansson", "http://www.myfilmviews.com/wp-content/uploads/2012/12/scarlett_johansson.jpg"),
-    new User("","","",'Brad',"Pitt","http://cdn.glamour.es/uploads/images/thumbs/201238/las_50_caras_de_brad_848381170_667x1000.jpg")
-  ];
+      new User("","","","Michael","Jackson","https://www.thefamouspeople.com/profiles/images/michael-jackson-3.jpg"),
+      new User("","","",'Scarlett',"Johansson", "http://www.myfilmviews.com/wp-content/uploads/2012/12/scarlett_johansson.jpg"),
+      new User("","","",'Brad',"Pitt","http://cdn.glamour.es/uploads/images/thumbs/201238/las_50_caras_de_brad_848381170_667x1000.jpg")
+    ];
 
   constructor(public config:AppConfiguration,public http:Http,public authService: AuthService ) {
-    super(config,http);
+    super(config, authService, http);
   }
 
-  list(): Observable<User[]> { //Observable<User[]>{
-    return this.get(this.resourceUrl);
-    // Mock
-    //return Observable.of(this.users);
-  }
-
-  create(username:string,password:string,email:string,name: string, lastName: string, image: string) {
-    //this.users.push(new User(name, lastName, image));
-    return this.post(this.resourceUrl,new User(username,password,email,name, lastName, image)); 
+  create(username:string, firstname: string,email:string, lastname: string, image: string,password:string) {
+        return this.post(this.resourceUrl+"/item", new User(username,firstname,email,lastname,image,password));
   }
 
 
   login(username: string, password: string) {
-    return this.post('user/login', { username, password }, { credentials: false }).map(loginResponse => {
+    return this.post(this.resourceUrl+'/login', { username, password }, { credentials: false }).map(loginResponse => {
       if (loginResponse) {
         this.authService.accessToken = loginResponse.accessToken;
       }

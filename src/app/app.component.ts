@@ -1,6 +1,7 @@
-import { Component } from "@angular/core";
-import { AuthService } from "./common/auth.service";
-
+import { Component } from '@angular/core';
+import { AuthService } from './common/auth.service';
+import { Router } from '@angular/router';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { AuthService } from "./common/auth.service";
 })
 export class AppComponent {
   title = 'app';
-  constructor(private authService: AuthService){
+  constructor(private authService: AuthService, private router: Router){
 
   }
 

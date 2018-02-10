@@ -1,17 +1,13 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Router, CanActivate, RouterModule } from '@angular/router';
-import { AppConfiguration } from '../common/config/app-configuration.service';
-import { AppDataService } from './app-data.service';
+import { Router, CanActivate } from '@angular/router';
 
+import { AppConfiguration } from '../common/config/app-configuration.service';
+import { AppDataService } from '../common/app-data.service';
 
 @Injectable()
-export class AuthService implements CanActivate{
-  
-constructor(public appData: AppDataService, public router:Router) {
-  this.signOut(); //debido a que no se ha implementado graficamente signOut
-  
-}
+export class AuthService implements CanActivate {
+  constructor(public router: Router, public appData: AppDataService) { }
 
   public get accessToken(): string {
     return this.appData.accessToken;
@@ -22,13 +18,12 @@ constructor(public appData: AppDataService, public router:Router) {
   }
 
   public isLoggedIn(): boolean {
-    
     return this.appData.accessToken != null && this.appData.accessToken !== undefined;
   }
 
   public signOut() {
-    
     this.appData.removeAccessToken();
+    this.router.navigate([''])
     //this.router.navigate(['']) debido a que no se ha implementado graficamente signOut
   }
 
