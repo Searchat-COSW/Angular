@@ -1,0 +1,25 @@
+
+<div class="row ">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <h2 class="text-center">Searchat sign In</h2>
+        <form [formGroup]="signInForm" (ngSubmit)="doLogin()" novalidate>
+            <div class="form-group">
+                <label for="description">Username</label>
+                <input type="text" class="form-control" id="description" formControlName="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="priority">Password</label>
+                <input type="password" class="form-control" id="alterEgo" formControlName="password">
+            </div>
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-success" [disabled]="!signInForm.valid">Sign In</button>
+            </div>
+            <p class="text-danger mt-1" *ngIf="loginError">{{loginError}}</p>
+
+        </form>
+    </div>
+    <div class="col-md-3"></div>
+
+</div>
