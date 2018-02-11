@@ -7,7 +7,9 @@ import { AppDataService } from '../common/app-data.service';
 
 @Injectable()
 export class AuthService implements CanActivate {
-  constructor(public router: Router, public appData: AppDataService) { }
+  constructor(public router: Router, public appData: AppDataService) { 
+    this.signOut();
+  }
 
   public get accessToken(): string {
     return this.appData.accessToken;
@@ -23,7 +25,6 @@ export class AuthService implements CanActivate {
 
   public signOut() {
     this.appData.removeAccessToken();
-    this.router.navigate([''])
     //this.router.navigate(['']) debido a que no se ha implementado graficamente signOut
   }
 

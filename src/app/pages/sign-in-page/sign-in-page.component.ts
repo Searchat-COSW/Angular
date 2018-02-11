@@ -18,7 +18,6 @@ export class SignInPageComponent implements OnInit {
     public signInForm: FormGroup;
     public loginError: string;
 
-
   constructor(public appComponent: AppComponent,public formBuilder:FormBuilder,public usersService: UserService,public router: Router) {
     this.signInForm = new FormGroup({
         username: new FormControl(),
@@ -33,7 +32,7 @@ export class SignInPageComponent implements OnInit {
       this.signInForm.get('username').value,
       this.signInForm.get('password').value).subscribe(loginResponse => {
 
-        this.router.navigate(['']);
+        this.router.navigate(['/home']);
 
       }, error => {
         this.loginError = 'Error Signing in: ' + error;
@@ -45,7 +44,7 @@ export class SignInPageComponent implements OnInit {
     return this.appComponent.isLoggedIn();
   }
 
-    ngOnInit() {
+  ngOnInit() {
       
   }
 }

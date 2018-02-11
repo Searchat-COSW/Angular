@@ -11,18 +11,13 @@ import { AuthService } from '../common/auth.service';
 @Injectable()
 export class UserService  extends APIService{ 
   private resourceUrl: string = 'user';
-    private users: User[] = [
-      new User("","","","Michael","Jackson","https://www.thefamouspeople.com/profiles/images/michael-jackson-3.jpg"),
-      new User("","","",'Scarlett',"Johansson", "http://www.myfilmviews.com/wp-content/uploads/2012/12/scarlett_johansson.jpg"),
-      new User("","","",'Brad',"Pitt","http://cdn.glamour.es/uploads/images/thumbs/201238/las_50_caras_de_brad_848381170_667x1000.jpg")
-    ];
 
   constructor(public config:AppConfiguration,public http:Http,public authService: AuthService ) {
     super(config, authService, http);
   }
 
-  create(username:string, firstname: string,email:string, lastname: string, image: string,password:string) {
-        return this.post(this.resourceUrl+"/item", new User(username,firstname,email,lastname,image,password));
+  create(username:string, firstname: string,email:string, lastname: string, password:string) {
+        return this.post(this.resourceUrl+"/item", new User(username,firstname,email,lastname,password));
   }
 
 

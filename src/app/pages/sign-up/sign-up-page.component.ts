@@ -24,7 +24,6 @@ export class SignUpPageComponent implements OnInit {
       firstname: '',
       email: '',
       lastname: '',
-      image: '',
       password: ''
     });
   }
@@ -35,7 +34,6 @@ onSubmit() {
       this.userForm.get('firstname').value,
       this.userForm.get('email').value,
       this.userForm.get('lastname').value,
-      this.userForm.get('image').value,
       this.userForm.get('password').value,
     ).subscribe(serverResponse=>{
         this.router.navigate(['/home']);
