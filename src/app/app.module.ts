@@ -15,12 +15,14 @@ import { INITIAL_CONFIG } from './common/config/initial-config';
 import { HomePageComponent }from './pages/home-page/home-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component';
+import { ProfileConfigurationComponent } from './pages/profile-configuration/profile-configuration.component';
 
 
 const ROUTES = [
   { path: 'signin', component: SignInPageComponent },
   { path: 'signup', component: SignUpPageComponent },
   { path: 'home', component: HomePageComponent },
+  { path: 'profileconfiguration', component: ProfileConfigurationComponent},
   { path: '**', component: PageNotFoundComponent }
 ]
 
@@ -31,7 +33,8 @@ const ROUTES = [
     SignUpPageComponent,
     HomePageComponent,
     PageNotFoundComponent,
-    SignInPageComponent
+    SignInPageComponent,
+    ProfileConfigurationComponent
   ],
   imports: [
     BrowserModule,

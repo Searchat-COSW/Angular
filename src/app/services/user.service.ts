@@ -20,6 +20,10 @@ export class UserService  extends APIService{
         return this.post(this.resourceUrl+"/item", new User(username,firstname,email,lastname,password));
   }
 
+  information(nationality:string, languages:string,aboutYou:string,image:string){
+      return null;
+  }
+
 
   login(username: string, password: string) {
     return this.post(this.resourceUrl+'/login', { username, password }, { credentials: false }).map(loginResponse => {
