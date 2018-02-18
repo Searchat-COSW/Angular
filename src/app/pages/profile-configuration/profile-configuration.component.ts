@@ -37,11 +37,9 @@ export class ProfileConfigurationComponent implements OnInit {
           this.userForm.get('languages').value,
           this.userForm.get('aboutYou').value,
           this.userForm.get('image').value
-        ).subscribe(response => {
+        ).subscribe(serverResponse => {
             this.router.navigate(['/home']);
         }, error => {
-          
-          
           this.userError = 'Error modificando datos usuario: ' + (error && error.message ? error.message : '');
         });
       }

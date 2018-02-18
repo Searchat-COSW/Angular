@@ -21,7 +21,7 @@ export class UserService  extends APIService{
   }
 
   information(nationality:string, languages:string,aboutYou:string,image:string){
-      return null;
+      return this.post(this.resourceUrl+"/item", null);
   }
 
 
