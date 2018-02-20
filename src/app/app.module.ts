@@ -5,6 +5,7 @@ import { SignUpPageComponent }from './pages/sign-up/sign-up-page.component';
 import { HttpModule } from '@angular/http';
 import { APIService} from './common/api.service';
 import { UserService} from './services/user.service';
+import { ActivityService } from './services/activity.service';
 import { AuthService } from './common/auth.service';
 import { AppDataService} from './common/app-data.service'
 import { AppConfiguration } from './common/config/app-configuration.service';
@@ -15,12 +16,14 @@ import { INITIAL_CONFIG } from './common/config/initial-config';
 import { HomePageComponent }from './pages/home-page/home-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component';
+import { ActivityDetailsComponent } from './pages/activity-details/activity-details.component';
 
 
 const ROUTES = [
   { path: 'signin', component: SignInPageComponent },
   { path: 'signup', component: SignUpPageComponent },
   { path: 'home', component: HomePageComponent },
+  { path: 'activityDetails', component: ActivityDetailsComponent },
   { path: '**', component: PageNotFoundComponent }
 ]
 
@@ -31,6 +34,7 @@ const ROUTES = [
     SignUpPageComponent,
     HomePageComponent,
     PageNotFoundComponent,
+    ActivityDetailsComponent,
     SignInPageComponent
   ],
   imports: [
@@ -52,7 +56,8 @@ const ROUTES = [
     APIService,
     UserService,
     AppDataService,
-    AuthService
+    AuthService,
+    ActivityService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,3 +1,37 @@
 <div class="container">
-  <h2>Activity: </h2>
+  <h2>Activity</h2>
+  <form [formGroup]="activityForm">
+    <div>
+      <label for="name">Name</label>
+      <label id="name" formControlName="name" ></label>
+    </div>
+    <div>
+      <label for="description">Description</label>
+      <label id="description" formControlName="description"></label>
+    </div>
+    <div>
+      <label for="administrator">Administrator</label>
+      <label id="administrator" formControlName="adminsitrator"></label>
+    </div>
+    <div>
+      <label for="languages">Languages</label>
+      <label id="languages" formControlName="languages"></label>
+    </div>
+    <div>
+      <label for="location">Location</label>
+      <label id="location" formControlName="location"></label>
+    </div>
+    <div>
+      <label for="date">Date</label>
+      <label id="date" formControlName="date"></label>
+    </div>
+    <div>
+      <label for="participants">Participants</label>
+      <label id="participants" formControlName="participants"></label>
+    </div>
+    <div>
+      <label for="price">Price</label>
+      <label id="price" formControlName="price"></label>
+    </div>
+  </form>
 </div>
