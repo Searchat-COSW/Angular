@@ -1,37 +1,56 @@
 <div class="container">
-  <h2>Activity</h2>
+  <h1 align="center">Activity Details</h1>
   <form [formGroup]="activityForm">
     <div>
-      <label for="name">Name</label>
-      <label id="name" formControlName="name" ></label>
+      <h3 for="name">Name</h3>
+      <br>
+      <label id="name">{{activity.name}}</label>
     </div>
     <div>
-      <label for="description">Description</label>
-      <label id="description" formControlName="description"></label>
+      <h3 for="description">Description</h3>
+      <br>
+      <label id="description">{{activity.description}}</label>
     </div>
     <div>
-      <label for="administrator">Administrator</label>
-      <label id="administrator" formControlName="adminsitrator"></label>
+      <h3 for="administrator">Administrator</h3>
+      <br>
+      <label id="administrator">{{activity.administrator.firstname}} {{activity.administrator.lastname}}</label>
+
     </div>
     <div>
-      <label for="languages">Languages</label>
-      <label id="languages" formControlName="languages"></label>
+      <h3 for="languages">Languages</h3>
+      <br>
+      <ul *ngFor="let lang of activity.languages" id="languages">
+        <li>{{lang}}</li>
+      </ul>
     </div>
     <div>
-      <label for="location">Location</label>
-      <label id="location" formControlName="location"></label>
+      <h3 for="location">Location</h3>
+      <br>
+      <label id="location">{{activity.location}}</label>
     </div>
     <div>
-      <label for="date">Date</label>
-      <label id="date" formControlName="date"></label>
+      <h3 for="date">Date</h3>
+      <br>
+      <label id="date">{{activity.date}}</label>
     </div>
     <div>
-      <label for="participants">Participants</label>
-      <label id="participants" formControlName="participants"></label>
+      <h3 for="participants">Participants</h3>
+      <br>
+      <ul *ngFor="let p of activity.participants "id="participants">
+        <li>{{p.firstname}}</li>
+      </ul>
     </div>
     <div>
-      <label for="price">Price</label>
-      <label id="price" formControlName="price"></label>
+      <h3 for="price">Price</h3>
+      <br>
+      <label id="price">{{activity.price}} COP</label>
+    </div>
+    <div>
+      <h2 align="center">Chat</h2>
+    </div>
+    <div class="square">
+        <h4>The chat will be here soon enough</h4>
     </div>
   </form>
 </div>
