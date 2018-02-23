@@ -6,16 +6,21 @@ import { Observable } from 'rxjs/Observable';
 import { APIService } from '../common/api.service';
 import { AppConfiguration } from '../common/config/app-configuration.service';
 import { Http } from '@angular/http';
+import { AuthService } from '../common/auth.service';
 
 @Injectable()
-export class ActivityService{
-  private activities: Activity[] = [
-new Activity("Climbing Monserrate", "In this activity we'll be going all the way up to Monserrate by foot",
-   new User("juanc","Juan","juan.herrera@prueba.com","Herrera","password"),
-   ["Spanish","English"], "Monserrate", "20/02/2018", [new User("Carlos","Carlos","carlos@prueba.com","Sanchez","password"),
-   new User("jhordy","Jhordy","jhordy@prueba.com","Salinas","password")],"40000")];
+export class ActivityService extends APIService{
+  private resourceUrl: string = 'activity';
+  private activity: Activity;
+  private activities: Activity[];
 
-  constructor(){}
+  constructor(
+    public config: AppConfiguration,
+    public authService: AuthService,
+    public http: Http
+  ) {
+    super(config, authService, http);
+  }
 
   create(name:string, description: string,administrator: User, languages:string[], location: string, date:string, participants: User[],price:string) {
     this.activities.push(new Activity(name, description, administrator,languages,location,date,participants,price));
@@ -23,4 +28,9 @@ new Activity("Climbing Monserrate", "In this activity we'll be going all the way
   edit(){}
 
   list(){}
+
+  getActivity(name: string){
+    console.log(this.get(this.resourceUrl+'/'+name));
+    return this.get(this.resourceUrl+'/'+name);
+  }
 }

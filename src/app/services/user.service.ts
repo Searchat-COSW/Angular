@@ -9,15 +9,15 @@ import { AuthService } from '../common/auth.service';
 
 
 @Injectable()
-export class UserService  extends APIService{ 
+export class UserService  extends APIService{
   private resourceUrl: string = 'user';
 
   constructor(public config:AppConfiguration,public http:Http,public authService: AuthService ) {
     super(config, authService, http);
   }
 
-  create(username:string, firstname: string,email:string, lastname: string, password:string) {
-        return this.post(this.resourceUrl+"/item", new User(username,firstname,email,lastname,password));
+  create(username:string, firstname: string,email:string, lastname: string, password:string, image:string) {
+        return this.post(this.resourceUrl+"/item", new User(username,firstname,email,lastname,password,image));
   }
 
 
@@ -26,7 +26,7 @@ export class UserService  extends APIService{
       if (loginResponse) {
         this.authService.accessToken = loginResponse.accessToken;
       }
-    
+
     });
   }
 

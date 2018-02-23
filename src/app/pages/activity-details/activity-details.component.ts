@@ -14,10 +14,7 @@ import { Router } from '@angular/router';
 
 export class ActivityDetailsComponent implements OnInit{
   private activityForm: FormGroup;
-  private activity = new Activity("Climbing Monserrate", "In this activity we'll be going all the way up to Monserrate by foot",
-   new User("juanc","Juan","juan.herrera@prueba.com","Herrera","password"),
-   ["Spanish","English"], "Monserrate", "20/02/2018 10:00 am", [new User("Carlos","Carlos","carlos@prueba.com","Sanchez","password"),
-   new User("jhordy","Jhordy","jhordy@prueba.com","Salinas","password")],"40000");
+  private activity;
 
   constructor(
     public activityService: ActivityService,
@@ -26,6 +23,7 @@ export class ActivityDetailsComponent implements OnInit{
   ){}
 
   ngOnInit(){
+    this.activity = this.activityService.getActivity("Climbing_Monserrate");
     this.activityForm = this.formBuilder.group({
       name:'',
       description:'',
