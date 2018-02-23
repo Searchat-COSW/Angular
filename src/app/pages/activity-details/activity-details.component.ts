@@ -23,7 +23,7 @@ export class ActivityDetailsComponent implements OnInit{
   ){}
 
   ngOnInit(){
-    this.activityService.getActivity("Climbing_Monserrate").subscribe(data => {
+    this.activityService.getActivity(sessionStorage.getItem("clickedActivity")).subscribe(data => {
       this.activity = data;
       }, error => {
         console.log("error");

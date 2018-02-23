@@ -8,12 +8,12 @@ import { AppConfiguration } from '../common/config/app-configuration.service';
 import { Http } from '@angular/http';
 import { AuthService } from '../common/auth.service';
 
+
 @Injectable()
 export class ActivityService extends APIService{
   private resourceUrl: string = 'activity';
   private activity: Activity;
   private activities: Activity[];
-
   constructor(
     public config: AppConfiguration,
     public authService: AuthService,
@@ -27,7 +27,9 @@ export class ActivityService extends APIService{
 }
   edit(){}
 
-  list(){}
+  list(city): Observable<Activity[]> {
+    return this.get(this.resourceUrl+"/location/"+city);
+  }
 
   getActivity(name: string): Observable<Activity>{
     return this.get(this.resourceUrl+'/'+name);

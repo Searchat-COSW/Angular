@@ -18,6 +18,7 @@ export class APIService {
   ) { }
 
   get(url: string, options?: any): Observable<any> {
+    
     return this.http
       .get(`${this.config.apiURL}/${url}`, this.getRequestOptions(options))
       .map(this.extractData)
@@ -48,7 +49,7 @@ export class APIService {
 
   private handleError(error: Response | any) {
     /*let errObj: any;
-
+  
     if (error instanceof Response) {
       const body = error.json();
       errObj = body;

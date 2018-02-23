@@ -18,6 +18,8 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component';
 import { ActivityDetailsComponent } from './pages/activity-details/activity-details.component';
 import { ProfileConfigurationComponent } from './pages/profile-configuration/profile-configuration.component';
+import { HomeListComponent }from './pages/home-list/home-list.component';
+
 
 
 const ROUTES = [
@@ -26,6 +28,7 @@ const ROUTES = [
   { path: 'home', component: HomePageComponent },
   { path: 'activityDetails', component: ActivityDetailsComponent },
   { path: 'profileconfiguration', component: ProfileConfigurationComponent},
+  { path: 'listActivities', component: HomeListComponent},
   { path: '**', component: PageNotFoundComponent }
 ]
 
@@ -38,7 +41,8 @@ const ROUTES = [
     PageNotFoundComponent,
     ActivityDetailsComponent,
     SignInPageComponent,
-    ProfileConfigurationComponent
+    ProfileConfigurationComponent,
+    HomeListComponent
   ],
   imports: [
     BrowserModule,

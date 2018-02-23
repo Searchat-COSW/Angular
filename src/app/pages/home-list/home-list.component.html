@@ -1,0 +1,21 @@
+<p>
+    ->  ACA DEBE IR LO DE CREAR
+</p>
+
+<h2 style="text-align: center;">Activities near to you</h2>
+<table class="table table-bordered">
+ <thead>
+   <tr>
+     <th>Name</th>
+     <th>Description</th>
+     <th>Date</th>
+     <th>Languages</th>
+   </tr>
+ </thead>
+ <tr *ngFor="let activity of activities">
+   <td (click)="detailFunc(activity.name)">{{activity.name}}</td>
+   <td>{{activity.description}}</td>
+   <td>{{activity.date}}</td>
+   <td>{{activity.languages}}</td>
+ </tr>
+</table>
