@@ -29,8 +29,7 @@ export class ActivityService extends APIService{
 
   list(){}
 
-  getActivity(name: string){
-    console.log(this.get(this.resourceUrl+'/'+name));
+  getActivity(name: string): Observable<Activity>{
     return this.get(this.resourceUrl+'/'+name);
   }
 }
