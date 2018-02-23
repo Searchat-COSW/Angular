@@ -31,6 +31,7 @@ export class SignInPageComponent implements OnInit {
     this.usersService.login(
       this.signInForm.get('username').value,
       this.signInForm.get('password').value).subscribe(loginResponse => {
+        sessionStorage.setItem("username",this.signInForm.get('username').value);
 
         this.router.navigate(['/home']);
 

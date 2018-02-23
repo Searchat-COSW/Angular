@@ -6,22 +6,22 @@
                 <h2 class="card-title text-center">Edit info</h2>
                 <div class="form-group">
                     <h4>Nationality</h4>
-                    <input class="form-control" type="text" id="nationality" placeholder="Nationality">
+                    <input class="form-control" type="text" id="nationality" placeholder="Nationality" formControlName="nationality" required>
                 </div>
         
                 <div class="form-group">
                     <h4>Languages</h4>
-                    <input class="form-control" type="text" id="lenguages" placeholder="Languages">
+                    <input class="form-control" type="text" id="lenguages" placeholder="Languages" formControlName="languages" required>
                 </div>
                         
                 <div>
                     <h4>About you</h4>
-                    <input class="form-control" type="text" id="aboutYou" placeholder="About you">
+                    <input class="form-control" type="text" id="aboutYou" placeholder="About you" formControlName="aboutYou" required>
                 </div>
         
                 <div>
                     <h4>Profile picture</h4>
-                    <input class="form-control" type="text" id="image" placeholder="Profile picture">
+                    <input class="form-control" type="text" id="image" placeholder="Profile picture" formControlName="image" required>
                 </div>
                 
                 <button type="submit" class="btn btn-success" [disabled]="!userForm.valid">Save</button>

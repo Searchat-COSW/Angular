@@ -36,6 +36,7 @@ onSubmit() {
       this.userForm.get('lastname').value,
       this.userForm.get('password').value,
     ).subscribe(serverResponse=>{
+      sessionStorage.setItem("username",this.userForm.get('username').value);
         this.router.navigate(['/home']);
     }, error=>{
       this.addError = 'Error adding user: ' + error;

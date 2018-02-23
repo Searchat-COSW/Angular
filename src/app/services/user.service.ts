@@ -6,6 +6,8 @@ import { APIService } from '../common/api.service';
 import { AppConfiguration } from '../common/config/app-configuration.service';
 import { Http } from '@angular/http';
 import { AuthService } from '../common/auth.service';
+import { ProfileConfigurationComponent } from '../pages/profile-configuration/profile-configuration.component';
+import { ProfileInformation } from '../models/profileInformation';
 
 
 @Injectable()
@@ -21,7 +23,7 @@ export class UserService  extends APIService{
   }
 
   information(nationality:string, languages:string,aboutYou:string,image:string){
-      return this.post(this.resourceUrl+"/item", null);
+      return this.post(this.resourceUrl+"/"+sessionStorage.getItem("username"),new ProfileInformation(nationality,languages,aboutYou,image));
   }
 
 
