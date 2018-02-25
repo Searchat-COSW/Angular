@@ -19,6 +19,7 @@ import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component
 import { ActivityDetailsComponent } from './pages/activity-details/activity-details.component';
 import { ProfileConfigurationComponent } from './pages/profile-configuration/profile-configuration.component';
 import { HomeListComponent }from './pages/home-list/home-list.component';
+import { UserDetailsComponent } from './pages/user-details/user-details.component';
 
 
 
@@ -27,7 +28,8 @@ const ROUTES = [
   { path: 'signup', component: SignUpPageComponent },
   { path: 'home', component: HomePageComponent },
   { path: 'activityDetails', component: ActivityDetailsComponent },
-  { path: 'profileconfiguration', component: ProfileConfigurationComponent},
+  { path: 'userDetails', component: UserDetailsComponent },
+  { path: 'profileConfiguration', component: ProfileConfigurationComponent},
   { path: 'listActivities', component: HomeListComponent},
   { path: '**', component: PageNotFoundComponent }
 ]
@@ -40,6 +42,7 @@ const ROUTES = [
     HomePageComponent,
     PageNotFoundComponent,
     ActivityDetailsComponent,
+    UserDetailsComponent,
     SignInPageComponent,
     ProfileConfigurationComponent,
     HomeListComponent

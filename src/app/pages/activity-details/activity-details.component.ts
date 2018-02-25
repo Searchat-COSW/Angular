@@ -39,4 +39,8 @@ export class ActivityDetailsComponent implements OnInit{
         price:''
         });
   }
+  detailFunc(name) {
+    sessionStorage.setItem("clickedUser", name);
+    this.router.navigate(['/userDetails']);
+  }
 }

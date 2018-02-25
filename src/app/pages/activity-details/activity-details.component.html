@@ -14,7 +14,7 @@
     <div>
       <h3 for="administrator">Administrator</h3>
       <br>
-      <label id="administrator">{{activity.administrator.firstname}} {{activity.administrator.lastname}}</label>
+      <label id="administrator" (click)="detailFunc(activity.administrator.username)">{{activity.administrator.firstname}} {{activity.administrator.lastname}}</label>
 
     </div>
     <div>
@@ -36,7 +36,7 @@
       <h3 for="participants">Participants</h3>
       <br>
       <ul *ngFor="let p of activity.participants "id="participants">
-        <li>{{p.firstname}}</li>
+        <li (click)="detailFunc(p.username)" >{{p.firstname}}</li>
       </ul>
     </div>
     <div>

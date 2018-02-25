@@ -1,0 +1,40 @@
+<div class="container">
+  <h1 align="center">User Details</h1>
+  <form [formGroup]="userForm">
+    <div>
+      <h3 for="firstname">Name</h3>
+      <br>
+      <label id="firstname">{{user.firstname}} {{user.lastname}}</label>
+    </div>
+    <div>
+      <h3 for="email">E-mail</h3>
+      <br>
+      <label id="email">{{user.email}}</label>
+    </div>
+    <div>
+      <h3 for="username">Username</h3>
+      <br>
+      <label id="username">{{user.username}}</label>
+    </div>
+    <div>
+      <h3 for="nationality">Nationality</h3>
+      <br>
+      <label id="nationality">{{user.profileInformation.nationality}}</label>
+    </div>
+    <div>
+      <h3 for="aboutYou">About me</h3>
+      <br>
+      <label id="aboutYou">{{user.profileInformation.aboutYou}}</label>
+    </div>
+    <div>
+      <h3 for="languages">Languages</h3>
+      <br>
+      <label id="languages">{{user.profileInformation.languages}}</label>
+    </div>
+    <div>
+      <h3 for="Image">Price</h3>
+      <br>
+      <img src={{user.profileInformation.image}} width="150" height="150" />
+    </div>
+  </form>
+</div>

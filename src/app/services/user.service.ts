@@ -40,4 +40,8 @@ export class UserService  extends APIService{
     return this.get(this.resourceUrl+'/'+sessionStorage.getItem("username"));
   }
 
+  getUser(username:string){
+    return this.get(this.resourceUrl+'/'+username)
+  }
+
 }
