@@ -43,4 +43,13 @@ export class ActivityDetailsComponent implements OnInit{
     sessionStorage.setItem("clickedUser", name);
     this.router.navigate(['/userDetails']);
   }
+
+  joinActivity(){
+    this.activityService.joinActivity(sessionStorage.getItem("clickedActivity"),sessionStorage.getItem("username"))
+    .subscribe(
+      data => {
+        this.ngOnInit();
+      }
+    );
+  }
 }

@@ -55,4 +55,9 @@ export class ActivityService extends APIService{
     cadena = cadena.replace(/ñ/gi,"n");
     return cadena;
  }
+
+
+ joinActivity(activityName:string,username:string){
+    return this.post(this.resourceUrl+'/join/'+activityName,username);
+ }
 }
