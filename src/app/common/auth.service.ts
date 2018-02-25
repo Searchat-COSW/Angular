@@ -25,7 +25,7 @@ export class AuthService implements CanActivate {
 
   public signOut() {
     this.appData.removeAccessToken();
-    //this.router.navigate(['']) debido a que no se ha implementado graficamente signOut
+    this.router.navigate(['']);
   }
 
   canActivate() {

@@ -11,14 +11,15 @@
     <h3>Searchat</h3>
   </form>
   <form class="form-inline">
-      <button type="button" class="btn btn-link"><h3>List</h3></button>
-      <button type="button" class="btn btn-link"><h3>Analize</h3></button>
-      <button type="button" class="btn btn-link"><h3>Choose</h3></button>
-    <button type="button" class="btn btn-link" routerLinkActive="/ActivityDetails" routerLink="/activityDetails"><h3>Activity Details</h3></button>
+      <button *ngIf="isLoggedIn()" type="button" class="btn btn-link" routerLinkActive="/listActivities" routerLink="/listActivities"><h3>List local activities</h3></button>
+      <button *ngIf="!isLoggedIn()"type="button" class="btn btn-link" routerLinkActive="#list" routerLink="#list"><h3>List</h3></button>
+      <button *ngIf="!isLoggedIn()"type="button" class="btn btn-link" routerLinkActive="#analize" routerLink="#analize"><h3>Analize</h3></button>
+      <button *ngIf="!isLoggedIn()"type="button" class="btn btn-link" routerLinkActive="#choose" routerLink="#choose"><h3>Choose</h3></button>
   </form>
 
   <form class="form-inline">
-      <button type="button" class="btn btn-success btn-lg">Sign In</button>
+      <button *ngIf="!isLoggedIn()" type="button" class="btn btn-success btn-lg" routerLinkActive="/signin" routerLink="/signin">Sign In</button>
+      <button *ngIf="isLoggedIn()" type="button" class="btn btn-danger btn-lg" (click)="signOut()">Sign out</button>
     </form>
 </nav>
 
