@@ -33,7 +33,7 @@ export class SignInPageComponent implements OnInit {
       this.signInForm.get('password').value).subscribe(loginResponse => {
         sessionStorage.setItem("username",this.signInForm.get('username').value);
 
-        this.router.navigate(['/home']);
+        this.router.navigate(['/listActivities']);
 
       }, error => {
         this.loginError = 'Error Signing in: ' + error;

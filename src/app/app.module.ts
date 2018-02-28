@@ -27,7 +27,7 @@ const ROUTES = [
   { path: 'signin', component: SignInPageComponent },
   { path: 'signup', component: SignUpPageComponent },
   { path: '', component: HomePageComponent },
-  { path: 'activityDetails', component: ActivityDetailsComponent },
+  { path: 'activityDetails', component: ActivityDetailsComponent},
   { path: 'userDetails', component: UserDetailsComponent },
   { path: 'profileConfiguration', component: ProfileConfigurationComponent},
   { path: 'listActivities', component: HomeListComponent},

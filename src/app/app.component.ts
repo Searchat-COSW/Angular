@@ -21,4 +21,11 @@ export class AppComponent {
   signOut() {
     this.authService.signOut();
   }
+
+  isInHome(){
+    var currentRoute = this.router.url
+    var currentRouteBool= currentRoute === "/" || (currentRoute[0]==="/" && currentRoute[1]==="#");
+    
+    return !this.isLoggedIn() && currentRouteBool;
+  }
 }

@@ -26,7 +26,6 @@ export class HomeListComponent implements OnInit {
   }
 
   ngOnInit() {
-
     navigator.geolocation.getCurrentPosition(data => this.getCityData(data).subscribe(country => this.getCity(country).then(
       cityData => {
         this.activityService.list(cityData).subscribe(list => {

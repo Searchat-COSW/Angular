@@ -6,15 +6,15 @@
 </div>-->
 <!-- .navbar-fixed-top la deja pegada arriba -->
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded sticky-top " style="background-color: #f17878;">
-  <form class="form-inline">
+  <form class="form-inline" onclick="location.href=''">
     <img src="assets/img/SC.png" width="70" height="70" class="d-inline-block align-top" alt="">
     <h3>Searchat</h3>
   </form>
   <form class="form-inline">
       <button *ngIf="isLoggedIn()" type="button" class="btn btn-link" routerLinkActive="/listActivities" routerLink="/listActivities"><h3>List local activities</h3></button>
-      <button *ngIf="!isLoggedIn()"type="button" class="btn btn-link" routerLinkActive="#list" routerLink="#list"><h3>List</h3></button>
-      <button *ngIf="!isLoggedIn()"type="button" class="btn btn-link" routerLinkActive="#analize" routerLink="#analize"><h3>Analize</h3></button>
-      <button *ngIf="!isLoggedIn()"type="button" class="btn btn-link" routerLinkActive="#choose" routerLink="#choose"><h3>Choose</h3></button>
+      <button *ngIf="isInHome()"type="button" class="btn btn-link" onclick="location.href='#list'"><h3>List</h3></button>
+      <button *ngIf="isInHome()"type="button" class="btn btn-link" onclick="location.href='#analize'"><h3>Analize</h3></button>
+      <button *ngIf="isInHome()"type="button" class="btn btn-link" onclick="location.href='#choose'"><h3>Choose</h3></button>
   </form>
 
   <form class="form-inline">
