@@ -12,6 +12,7 @@
   </form>
   <form class="form-inline">
       <button *ngIf="isLoggedIn()" type="button" class="btn btn-link" routerLinkActive="/listActivities" routerLink="/listActivities"><h3>List local activities</h3></button>
+      <button *ngIf="isLoggedIn()" type="button" class="btn btn-link" routerLinkActive="/profileConfiguration" routerLink="/profileConfiguration"><h3>Edit profile</h3></button>
       <button *ngIf="isInHome()"type="button" class="btn btn-link" onclick="location.href='#list'"><h3>List</h3></button>
       <button *ngIf="isInHome()"type="button" class="btn btn-link" onclick="location.href='#analize'"><h3>Analize</h3></button>
       <button *ngIf="isInHome()"type="button" class="btn btn-link" onclick="location.href='#choose'"><h3>Choose</h3></button>

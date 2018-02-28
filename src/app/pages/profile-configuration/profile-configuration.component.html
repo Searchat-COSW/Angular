@@ -1,7 +1,6 @@
-<div class="container">
-    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
-        <div class="col-md-3"></div>
-        <div class="card border-secondary mb-3" class="border-0" style="width: 40rem;">
+<div class="container" >
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate class="card card-container">
+        
             <div class="card-body">
                 <h2 class="card-title text-center">Edit info</h2>
                 <div class="form-group">
@@ -23,13 +22,12 @@
                     <h4>Profile picture</h4>
                     <input class="form-control" type="text" id="image" placeholder="Profile picture" formControlName="image" required>
                 </div>
-                
+                <p></p>
                 <button type="submit" class="btn btn-success" [disabled]="!userForm.valid">Save</button>
                 <p class="text-danger mt-1" *ngIf="userError">{{userError}}</p>
                 
             </div>
-        </div>
-        <div class="col-md-3"></div>
+        
     </form>
 
 </div>

@@ -1,7 +1,7 @@
 
-<div class="row " *ngIf="!isLoggedIn()">
+<div  class="row" *ngIf="!isLoggedIn()">
     <div class="col-md-3"></div>
-    <div class="col-md-6">
+    <div class="col-md-6 card card-container">
         <h2 class="text-center">Searchat sign In</h2>
         <form [formGroup]="signInForm" (ngSubmit)="doLogin()" novalidate>
             <div class="form-group">

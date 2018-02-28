@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../common/auth.service';
 
 @Component({
   selector: 'app-sign-up-page',
@@ -15,7 +16,8 @@ export class SignUpPageComponent implements OnInit {
   constructor(
     public usersService: UserService,
     public formBuilder: FormBuilder,
-    public router:Router
+    public router:Router,
+    public authService:AuthService
   ) {}
 
   ngOnInit() {
@@ -37,7 +39,9 @@ onSubmit() {
       this.userForm.get('password').value
     ).subscribe(serverResponse=>{
       sessionStorage.setItem("username",this.userForm.get('username').value);
-        this.router.navigate(['/listActivities']);
+      this.usersService.login(this.userForm.get('username').value,this.userForm.get('password').value).subscribe(
+        response => {this.router.navigate(['/listActivities']);}
+      )
     }, error=>{
       this.addError = 'Error adding user: ' + error;
     });
