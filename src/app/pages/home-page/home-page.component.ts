@@ -10,6 +10,12 @@ export class HomePageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    var sizeW=screen.width*.5;
+    var sizeH=screen.height*.78;
+    document.getElementById('image1').style.width=sizeW+"px";
+    document.getElementById('image1').style.height=sizeH+"px";
+    document.getElementById('image2').style.width=sizeW+"px";
+    document.getElementById('image2').style.height=sizeH+"px";
   }
 
 }

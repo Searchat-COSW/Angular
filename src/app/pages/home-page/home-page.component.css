@@ -1,0 +1,19 @@
+.homeText{
+    font-size: 900%;
+    font-family:"Lucida Sans";
+    font-style: oblique;
+    text-align: center;
+}
+.secondText{
+    font-size: 500%;
+    font-family:"Lucida Sans";
+    font-style: oblique;
+    text-align: center;
+}
+
+.textCenter {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}

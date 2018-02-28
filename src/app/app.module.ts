@@ -26,7 +26,7 @@ import { UserDetailsComponent } from './pages/user-details/user-details.componen
 const ROUTES = [
   { path: 'signin', component: SignInPageComponent },
   { path: 'signup', component: SignUpPageComponent },
-  { path: 'home', component: HomePageComponent },
+  { path: '', component: HomePageComponent },
   { path: 'activityDetails', component: ActivityDetailsComponent },
   { path: 'userDetails', component: UserDetailsComponent },
   { path: 'profileConfiguration', component: ProfileConfigurationComponent},
