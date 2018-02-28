@@ -8,7 +8,7 @@ import { AppDataService } from '../common/app-data.service';
 @Injectable()
 export class AuthService implements CanActivate {
   constructor(public router: Router, public appData: AppDataService) { 
-    this.signOut();
+    
   }
 
   public get accessToken(): string {

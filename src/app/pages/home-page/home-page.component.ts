@@ -8,7 +8,8 @@ import { element } from 'protractor';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit() {
 
