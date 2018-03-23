@@ -10,9 +10,27 @@
         
                 <div class="form-group">
                     <h4>Languages</h4>
-                    <input class="form-control" type="text" id="lenguages" placeholder="Languages" formControlName="languages" required>
+                    <select>
+                        <option value="Español">Español</option>
+                        <option value="Ingles">Ingles</option>
+                        <option value="Mandarin">Mandarin</option>
+                        <option value="Portugues">Portugues</option>
+                        <option value="Ruso">Ruso</option>
+                        <option value="Japones">Japones</option>
+                        <option value="Italiano">Italiano</option>
+                        <option value="Aleman">Aleman</option>
+                        <option value="Frances">Frances</option>
+                      </select> 
+                      <button class="btn btn-info" (click)="add()">Add</button>    
                 </div>
-                        
+
+                <div>
+                    <h6>Idiomas agregados: </h6>
+                    <output id="idiomasAdd">
+                        de
+                    </output>
+                </div>
+                    
                 <div>
                     <h4>About you</h4>
                     <input class="form-control" type="text" id="aboutYou" placeholder="About you" formControlName="aboutYou" required>

@@ -22,7 +22,7 @@ export class ActivityService extends APIService{
     super(config, authService, http);
   }
 
-  create(name:string, description: string,administrator: User, languages:string, location: string, date:string, participants: User[],price:string) {
+  create(name:string, description: string,administrator: User, languages:string[], location: string, date:string, participants: User[],price:string) {
     return this.post(this.resourceUrl+'/create',new Activity(name, description, administrator,languages,location,date,participants,price));
   }
   
