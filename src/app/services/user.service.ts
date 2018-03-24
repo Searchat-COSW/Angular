@@ -49,4 +49,8 @@ export class UserService  extends APIService{
     return this.get(this.resourceUrl+'/'+username)
   }
 
+  getImageUser(username:string){
+    return this.get(this.resourceUrl+'/'+username+'/image')
+  }
+
 }

@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class UserDetailsComponent implements OnInit{
   private userForm: FormGroup;
   private user;
+  private image;
 
   constructor(
     public userService: UserService,
@@ -22,6 +23,7 @@ export class UserDetailsComponent implements OnInit{
   ){}
 
   ngOnInit(){
+    this.image = 'http://localhost:8080/user/'+sessionStorage.getItem("clickedUser")+'/image'
     this.userService.getUser(sessionStorage.getItem("clickedUser")).subscribe(data => {
       this.user = data;
       }, error => {
