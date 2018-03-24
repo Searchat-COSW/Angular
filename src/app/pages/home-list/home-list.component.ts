@@ -19,6 +19,8 @@ export class HomeListComponent implements OnInit {
   private city;
   private activityForm: FormGroup;
   private modalreference;
+  private lenguages;
+  private selectedLenguages : string[];
 
   constructor(public formBuilder: FormBuilder, public modalService: NgbModal, public activityService: ActivityService, public router: Router, public http: Http, public userService: UserService) {
 
@@ -26,6 +28,9 @@ export class HomeListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.selectedLenguages = []
+    this.lenguages =["Español","Ingles","Mandarin","Portugues","Ruso","Japones","Italiano","Aleman","Frances"] //tambien está en profile-configurarion.component, toca corregir
+    
     navigator.geolocation.getCurrentPosition(data => this.getCityData(data).subscribe(country => this.getCity(country).then(
       cityData => {
         this.activityService.list(cityData).subscribe(list => {
@@ -37,6 +42,7 @@ export class HomeListComponent implements OnInit {
       name: '',
       description: '',
       languages: '',
+      selectedLenguage: '',
       location: '',
       date: '',
       price: ''
@@ -53,7 +59,9 @@ export class HomeListComponent implements OnInit {
 
   getCity(data) {
     return new Promise((resolve, reject) => {
-      resolve(this.city = this.activityService.getCleanedString(data.json().results[0].formatted_address.split(", ")[1]));
+      resolve(
+        this.city = this.activityService.getCleanedString(data.json().results[0].formatted_address.split(", ")[1])
+      );
     });
   }
 
@@ -69,7 +77,7 @@ export class HomeListComponent implements OnInit {
           this.activityForm.get('name').value,
           this.activityForm.get('description').value,
           admin,
-          this.activityForm.get('languages').value,
+          this.selectedLenguages,
           this.activityService.getCleanedString(this.activityForm.get('location').value),
           this.activityForm.get('date').value,
           [],
@@ -83,6 +91,12 @@ export class HomeListComponent implements OnInit {
       }
     )
   }
+
+  addLenguage(){
+    if (this.activityForm.get('selectedLenguage').value!="" && !this.selectedLenguages.includes(this.activityForm.get('selectedLenguage').value)){
+        this.selectedLenguages.push(this.activityForm.get('selectedLenguage').value)
+    }
+}
 
   
 }

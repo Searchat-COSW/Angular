@@ -25,7 +25,7 @@
     <h4 class="modal-title">Add activity</h4>
   </div>
   <div class="modal-body">
-    <form [formGroup]="activityForm" (ngSubmit)="onSubmit()" novalidate>
+    <form [formGroup]="activityForm" novalidate>
       <div class="form-group">
         <label for="name">Name</label>
         <input type="text" class="form-control" id="name" formControlName="name" required>
@@ -37,9 +37,19 @@
       </div>
 
       <div class="form-group">
-        <label for="languages">Languages</label>
-        <input type="text" class="form-control" id="languages" formControlName="languages" required>
-      </div>
+        <h4>Languages</h4>
+        <select formControlName="selectedLenguage">
+          <option *ngFor="let l of lenguages" [ngValue]="l">{{l}}</option>
+        </select>
+        <button class="btn btn-info" (click)="addLenguage()">Add</button>    
+    </div>
+
+    <div  *ngIf="selectedLenguages.length>0">
+        <h4>Added lenguages:  </h4>
+        <h6 *ngFor="let idioma of selectedLenguages">
+           -> {{idioma}}
+        </h6> 
+    </div>
 
       <div class="form-group">
         <label for="location">Location</label>
@@ -56,7 +66,7 @@
         <input type="text" class="form-control" id="price" formControlName="price" required>
       </div>
 
-      <button type="submit" class="btn btn-success">Create</button>
+      <button type="submit" (click)="onSubmit()" class="btn btn-success">Create</button>
 
     </form>
   </div>

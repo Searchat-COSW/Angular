@@ -1,5 +1,5 @@
 <div class="container" >
-    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate class="card card-container">
+    <form [formGroup]="userForm"  novalidate class="card card-container">
         
             <div class="card-body">
                 <h2 class="card-title text-center">Edit info</h2>
@@ -10,25 +10,17 @@
         
                 <div class="form-group">
                     <h4>Languages</h4>
-                    <select>
-                        <option value="Español">Español</option>
-                        <option value="Ingles">Ingles</option>
-                        <option value="Mandarin">Mandarin</option>
-                        <option value="Portugues">Portugues</option>
-                        <option value="Ruso">Ruso</option>
-                        <option value="Japones">Japones</option>
-                        <option value="Italiano">Italiano</option>
-                        <option value="Aleman">Aleman</option>
-                        <option value="Frances">Frances</option>
-                      </select> 
-                      <button class="btn btn-info" (click)="add()">Add</button>    
+                    <select formControlName="selectedLenguage">
+                      <option *ngFor="let l of lenguages" [ngValue]="l">{{l}}</option>
+                    </select>
+                    <button class="btn btn-info" (click)="add()">Add</button>    
                 </div>
 
-                <div>
-                    <h6>Idiomas agregados: </h6>
-                    <output id="idiomasAdd">
-                        de
-                    </output>
+                <div  *ngIf="selectedLenguages.length>0">
+                    <h4>Added lenguages:  </h4>
+                    <h6 *ngFor="let idioma of selectedLenguages">
+                       -> {{idioma}}
+                    </h6> 
                 </div>
                     
                 <div>
@@ -38,14 +30,13 @@
         
                 <div>
                     <h4>Profile picture</h4>
-                    <input class="form-control" type="text" id="image" placeholder="Profile picture" formControlName="image" required>
+                    <input class="form-control" type="file" (change)="setImage($event)" id="image">
                 </div>
                 <p></p>
-                <button type="submit" class="btn btn-success" [disabled]="!userForm.valid">Save</button>
-                <p class="text-danger mt-1" *ngIf="userError">{{userError}}</p>
+                <button (click)="onSubmit()" type="submit" class="btn btn-success" [disabled]="!userForm.valid">Save</button>
+                <p class="text-danger mt-1" *ngIf="userError"> {{userError}}</p>
                 
             </div>
         
     </form>
-
 </div>

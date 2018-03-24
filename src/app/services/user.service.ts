@@ -22,8 +22,13 @@ export class UserService  extends APIService{
         return this.post(this.resourceUrl+"/item", new User(username,firstname,email,lastname,password));
   }
 
-  information(nationality:string, languages:string [],aboutYou:string,image:File){
-      return this.post(this.resourceUrl+"/"+sessionStorage.getItem("username"),new ProfileInformation(nationality,languages,aboutYou,image));
+  information(nationality:string, languages:string [],aboutYou:string){
+      return this.post(this.resourceUrl+"/"+sessionStorage.getItem("username"),new ProfileInformation(nationality,languages,aboutYou));
+  }
+
+  informationImage(formData){
+    
+    return this.postImage(this.resourceUrl+"/"+sessionStorage.getItem("username")+"/image",formData);
   }
 
 

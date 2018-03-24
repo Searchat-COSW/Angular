@@ -8,11 +8,11 @@ export class ProfileInformation{
 
     private image: File;
 
-    constructor(nationality: string, languages: string[], aboutYou: string, image: File){
+    constructor(nationality: string, languages: string[], aboutYou: string){
         this.nationality = nationality;
         this.languages = languages;
         this.aboutYou = aboutYou;
-        this.image = image;
+        
     }
 
 }

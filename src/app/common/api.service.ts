@@ -32,6 +32,19 @@ export class APIService {
       .catch(this.handleError);
   }
 
+  postImage(url: string, body: any): Observable<any> {
+    
+    //let headers = new Headers({ 'Content-Type': undefined});
+    //const innerOptions = new RequestOptions({ headers });
+    
+    return this.http
+      .post(`${this.config.apiURL}/${url}`, body,{
+
+    })
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
   private getRequestOptions(options?: any) {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     const innerOptions = new RequestOptions({ headers });
