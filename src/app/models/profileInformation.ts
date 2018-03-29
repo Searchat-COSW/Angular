@@ -1,18 +1,28 @@
+import { Lenguage } from "./lenguage";
+
+
 export class ProfileInformation{
 
     private nationality: string;
     
-    private languages: string [];
+    private languages: Lenguage [];
 
     private aboutYou: string;
 
     private image: File;
 
-    constructor(nationality: string, languages: string[], aboutYou: string){
+    private username:string
+
+    constructor(username:string, nationality: string, aboutYou: string){
         this.nationality = nationality;
-        this.languages = languages;
         this.aboutYou = aboutYou;
+        this.username = username;
         
+    }
+    
+
+    setLenguagues(ll:Lenguage[]){
+        this.languages = ll;
     }
 
 }

@@ -8,6 +8,7 @@ import { Http } from '@angular/http';
 import { AuthService } from '../common/auth.service';
 import { ProfileConfigurationComponent } from '../pages/profile-configuration/profile-configuration.component';
 import { ProfileInformation } from '../models/profileInformation';
+import { Lenguage } from '../models/lenguage';
 
 
 @Injectable()
@@ -23,7 +24,14 @@ export class UserService  extends APIService{
   }
 
   information(nationality:string, languages:string [],aboutYou:string){
-      return this.post(this.resourceUrl+"/"+sessionStorage.getItem("username"),new ProfileInformation(nationality,languages,aboutYou));
+    let lenguaguesList = []
+    let pi = new ProfileInformation(sessionStorage.getItem("username"),nationality,aboutYou);
+    languages.forEach(element => {
+      lenguaguesList.push(new Lenguage(element));
+    });
+    pi.setLenguagues(lenguaguesList);
+   
+    return this.post(this.resourceUrl+"/"+sessionStorage.getItem("username"),pi);
   }
 
   informationImage(formData){

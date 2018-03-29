@@ -37,7 +37,6 @@ export class ProfileConfigurationComponent implements OnInit {
     }
 
     onSubmit() {
-
         this.userService.information(
           this.userForm.get('nationality').value,
           this.selectedLenguages,
