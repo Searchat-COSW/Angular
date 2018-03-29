@@ -7,6 +7,7 @@ import { APIService } from '../common/api.service';
 import { AppConfiguration } from '../common/config/app-configuration.service';
 import { Http } from '@angular/http';
 import { AuthService } from '../common/auth.service';
+import { Lenguage } from '../models/lenguage';
 
 
 @Injectable()
@@ -22,8 +23,13 @@ export class ActivityService extends APIService{
     super(config, authService, http);
   }
 
-  create(name:string, description: string,administrator: User, languages:string[], location: string, date:string, participants: User[],price:string) {
-    return this.post(this.resourceUrl+'/create',new Activity(name, description, administrator,languages,location,date,participants,price));
+  create(name:string, description: string,administrator: User, languages:string[], location: string, date:Date, participants: User[],price:string) {
+    let lenguaguesList = []
+    languages.forEach(element => {
+      lenguaguesList.push(new Lenguage(element));
+    });
+    let a = new Activity(name, description, administrator,lenguaguesList,location,date,participants,price)
+    return this.post(this.resourceUrl+'/create',a);
   }
   
   edit(){}
