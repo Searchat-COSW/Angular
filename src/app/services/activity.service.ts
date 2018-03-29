@@ -29,6 +29,7 @@ export class ActivityService extends APIService{
       lenguaguesList.push(new Lenguage(element));
     });
     let a = new Activity(name, description, administrator,lenguaguesList,location,date,participants,price)
+    
     return this.post(this.resourceUrl+'/create',a);
   }
   
@@ -38,8 +39,8 @@ export class ActivityService extends APIService{
     return this.get(this.resourceUrl+"/location/"+city);
   }
 
-  getActivity(name: string): Observable<Activity>{
-    return this.get(this.resourceUrl+'/'+name);
+  getActivity(id: string): Observable<Activity>{
+    return this.get(this.resourceUrl+'/'+id);
   }
 
   getCleanedString(cadena){

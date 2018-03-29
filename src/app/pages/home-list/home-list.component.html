@@ -13,10 +13,10 @@
     </tr>
   </thead>
   <tr *ngFor="let activity of activities">
-    <td (click)="detailFunc(activity.name)">{{activity.name}}</td>
+    <td (click)="detailFunc(activity.id)">{{activity.name}}</td>
     <td>{{activity.description}}</td>
     <td>{{activity.date}}</td>
-    <td>{{activity.languages}}</td>
+    <td>{{activityLenguages(activity.languages)}}</td>
   </tr>
 </table>
 

@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { Http } from '@angular/http';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UserService } from '../../services/user.service';
+import { Lenguage } from '../../models/lenguage';
+import { forEach } from '@angular/router/src/utils/collection';
 
 
 
@@ -48,8 +50,8 @@ export class HomeListComponent implements OnInit {
       price: ''
     });
   }
-  detailFunc(name) {
-    sessionStorage.setItem("clickedActivity", name);
+  detailFunc(id) {
+    sessionStorage.setItem("clickedActivity", id);
     this.router.navigate(['/activityDetails']);
   }
 
@@ -96,7 +98,15 @@ export class HomeListComponent implements OnInit {
     if (this.activityForm.get('selectedLenguage').value!="" && !this.selectedLenguages.includes(this.activityForm.get('selectedLenguage').value)){
         this.selectedLenguages.push(this.activityForm.get('selectedLenguage').value)
     }
+  
 }
+  activityLenguages(lenguages:Lenguage[]){
+    let ans="";
+      lenguages.forEach(element => {
+        ans+=element.lenguage+", ";
+      });
+      return ans.substr(0,ans.length-2);
+  }
 
   
 }
