@@ -5,6 +5,7 @@ import { ActivityService } from '../../services/activity.service';
 import { Activity } from '../../models/activity';
 import { User } from '../../models/user';
 import { Router } from '@angular/router';
+import { Lenguage } from '../../models/lenguage';
 
 @Component({
   selector: 'app-activity-details',
@@ -52,4 +53,13 @@ export class ActivityDetailsComponent implements OnInit{
       }
     );
   }
+
+  activityLenguages(lenguages:Lenguage[]){
+    let ans="";
+      lenguages.forEach(element => {
+        ans+=element.lenguage+", ";
+      });
+      return ans.substr(0,ans.length-2);
+  }
+  
 }

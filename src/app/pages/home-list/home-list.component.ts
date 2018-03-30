@@ -45,7 +45,7 @@ export class HomeListComponent implements OnInit {
       description: '',
       languages: '',
       selectedLenguage: '',
-      location: '',
+      location:'',
       date: '',
       price: ''
     });
@@ -69,6 +69,15 @@ export class HomeListComponent implements OnInit {
 
   add(act) {
     this.modalreference = this.modalService.open(act);
+    this.activityForm = this.formBuilder.group({
+      name: '',
+      description: '',
+      languages: '',
+      selectedLenguage: '',
+      location:this.city,
+      date: '',
+      price: ''
+    });
   }
 
   onSubmit() {

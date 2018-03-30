@@ -4,6 +4,7 @@ import { UserService } from '../../services/user.service';
 import { Activity } from '../../models/activity';
 import { User } from '../../models/user';
 import { Router } from '@angular/router';
+import { Lenguage } from '../../models/lenguage';
 
 @Component({
   selector: 'app-user-details',
@@ -39,5 +40,13 @@ export class UserDetailsComponent implements OnInit{
         datelanguages:'',
         image:''
         });
+  }
+
+  activityLenguages(lenguages:Lenguage[]){
+    let ans="";
+      lenguages.forEach(element => {
+        ans+=element.lenguage+", ";
+      });
+      return ans.substr(0,ans.length-2);
   }
 }
