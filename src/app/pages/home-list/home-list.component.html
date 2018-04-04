@@ -38,17 +38,17 @@
 
       <div class="form-group">
         <h4>Languages</h4>
-        <select formControlName="selectedLenguage">
+        <select formControlName="selectedLenguage" class="form-control selcls">
           <option *ngFor="let l of lenguages" [ngValue]="l">{{l}}</option>
         </select>
-        <button class="btn btn-info" (click)="addLenguage()">Add</button>    
+        <button class="btn btn-outline-success" (click)="addLenguage()">Add</button>
     </div>
 
     <div  *ngIf="selectedLenguages.length>0">
         <h4>Added lenguages:  </h4>
         <h6 *ngFor="let idioma of selectedLenguages">
            -> {{idioma}}
-        </h6> 
+        </h6>
     </div>
 
       <div class="form-group">
